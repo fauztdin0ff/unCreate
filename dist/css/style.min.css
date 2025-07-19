@@ -341,6 +341,9 @@ section:not(.comments),
   font-weight: 400;
   line-height: 140%;
 }
+.test__questions {
+  min-height: 180px;
+}
 .test__question p {
   font-size: 20px;
   font-weight: 700;
@@ -941,6 +944,7 @@ section:not(.comments),
 /*---------------------------comments------------------------------*/
 .comments {
   padding-bottom: 20px;
+  margin-top: 20px;
 }
 .comments__body {
   max-width: 742px;

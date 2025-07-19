@@ -143,6 +143,7 @@ __webpack_require__.r(__webpack_exports__);
 
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();
 
+//main
 document.addEventListener("DOMContentLoaded", function () {
    const sections = {
       app: document.getElementById("app"),
@@ -151,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
       game: document.getElementById("game"),
       order: document.getElementById("order"),
    };
-
+   const commentsSection = document.querySelector(".comments");
    const body = document.querySelector('body');
    const questions = document.querySelectorAll(".test__question");
    const currentQuestionEl = document.getElementById("currentQuestion");
@@ -160,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
    const popup = document.getElementById("gamePopup");
    const tryAgainBtn = document.querySelector(".game__popup-button");
    const boxes = document.querySelectorAll(".box");
+   const footer = document.querySelector("footer");
 
    let currentQuestion = 0;
    let clickCount = 0;
@@ -225,6 +227,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
    // Loader animation
    function startLoaderSequence() {
+      if (commentsSection && footer) {
+         commentsSection.style.display = "none";
+         footer.style.display = "none";
+      }
+
       loaderListItems.forEach(item => item.style.opacity = "0");
 
       setTimeout(() => {
@@ -240,16 +247,24 @@ document.addEventListener("DOMContentLoaded", function () {
                loaderListItems[2].style.maxHeight = "200px";
 
                setTimeout(() => {
-                  transitionSection(sections.loader, sections.game);
+                  transitionSection(sections.loader, sections.game, () => {
+                     if (commentsSection) {
+                        commentsSection.style.display = "block";
+                        footer.style.display = "block";
+                     }
+                  });
                }, 1000);
             }, 800);
          }, 1000);
       }, 2000);
    }
 
+
    // Instruction button
    instructionButton.addEventListener("click", () => {
       transitionSection(sections.instruction, sections.order);
+      commentsSection.style.display = "none";
+      footer.style.display = "none";
    });
 
    // Game logic
