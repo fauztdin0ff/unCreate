@@ -145,6 +145,48 @@ html {
   scrollbar-gutter: stable;
 }
 
+html:dir(rtl) .comment__label,
+body:dir(rtl) .comment__label {
+  right: unset;
+  left: -18px;
+}
+html:dir(rtl) .comment-answer,
+body:dir(rtl) .comment-answer {
+  margin-left: 0;
+  margin-right: auto;
+}
+html:dir(rtl) .timer__block,
+body:dir(rtl) .timer__block {
+  display: inline-flex;
+  gap: 5px;
+}
+html:dir(rtl) .order__head-step:first-child::before,
+body:dir(rtl) .order__head-step:first-child::before {
+  left: 0;
+}
+html:dir(rtl) .order__head-step:last-child::before,
+body:dir(rtl) .order__head-step:last-child::before {
+  left: 50%;
+}
+html:dir(rtl) .order__form-area .order__form-label,
+body:dir(rtl) .order__form-area .order__form-label {
+  left: unset;
+  right: 8px;
+}
+html:dir(rtl) .order__form-radio label,
+body:dir(rtl) .order__form-radio label {
+  gap: 5px;
+}
+html:dir(rtl) .order__total-list li span,
+body:dir(rtl) .order__total-list li span {
+  display: inline-flex;
+  gap: 5px;
+}
+html:dir(rtl) .order__head-info del,
+body:dir(rtl) .order__head-info del {
+  margin-right: 5px;
+}
+
 body {
   min-height: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -264,6 +306,7 @@ section:not(.comments),
 }
 .app__product {
   display: flex;
+  flex-direction: row;
   gap: 20px;
 }
 @media (max-width: 1024px) {
@@ -829,6 +872,10 @@ section:not(.comments),
 .order__total-list li:last-child {
   font-weight: 700;
 }
+.order__total-list del {
+  color: #a8a8a8;
+  padding-right: 5px;
+}
 .order__form {
   margin: 20px auto;
   max-width: 724px;
@@ -913,6 +960,7 @@ section:not(.comments),
 }
 .order__form-submit .button {
   margin: 0;
+  font-size: 20px;
 }
 
 .phone-area {
@@ -1201,6 +1249,70 @@ section:not(.comments),
   max-width: 100%;
   width: auto;
   height: auto;
+}
+
+/*------------------------------Notifications---------------------------*/
+.notification {
+  position: fixed;
+  box-shadow: 0px 0px 6.35px 0px rgba(0, 0, 0, 0.1019607843);
+  min-height: 64px;
+  overflow: hidden;
+  z-index: 9999;
+  border-radius: 10px;
+  width: 310px;
+  user-select: none;
+  background: #fff;
+  top: 68px;
+  right: 14px;
+  z-index: 9999;
+  position: fixed;
+  padding: 4px;
+  transform: translateX(50px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s linear 0s;
+}
+.notification.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+.notification__body {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.notification__image {
+  flex: 0 0 52px;
+}
+.notification__user {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 140%;
+  margin-bottom: 3px;
+}
+.notification__user span {
+  text-decoration: underline;
+  font-weight: 400;
+}
+.notification__text {
+  margin-bottom: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 140%;
+}
+.notification__date {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 140%;
+  color: #a8a8a8;
+}
+.notification__close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  cursor: pointer;
 }
 
 /*------------------------------Animations---------------------------*/

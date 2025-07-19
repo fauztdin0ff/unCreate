@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,8 +53,16 @@
                            Question <span id="currentQuestion">1</span> of 4
                         </div>
                         <div class="test__title-dot"></div>
-                        <div class="test__timer"><span id="test__timer-hour">2</span> min <span
-                              id="test__timer-seconds">00</span> sec</div>
+                        <div class="test__timer">
+                           <span class="timer__block timer__min">
+                              <span id="test__timer-hour">2</span>
+                              <span class="test__label">min</span>
+                           </span>
+                           <span class="timer__block timer__sec">
+                              <span id="test__timer-seconds">00</span>
+                              <span class="test__label">sec</span>
+                           </span>
+                        </div>
                      </div>
                      <div class="test__questions">
                         <div class="test__question question-1">
@@ -128,7 +136,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -143,7 +151,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -158,7 +166,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -173,7 +181,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -188,7 +196,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -203,7 +211,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -218,7 +226,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -233,7 +241,7 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
@@ -248,12 +256,12 @@
                      <use xlink:href="#inside"></use>
                   </svg>
                   <div class="box__prize">
-                     <img src="img/product.webp" class="box__prize-image" alt="prize image">
+                     <img src="img/product.webp" width="77" height="77" class="box__prize-image" alt="prize image">
                   </div>
                   <img src="img/logo.png" class="box__logo" width="40px" height="40px" alt="logo">
                </div>
             </div>
-            <img src="img/product.webp" class="game__prize-image" alt="prize image">
+            <img src="img/product.webp" width="500" height="500" class="game__prize-image" alt="prize image">
 
          </div>
       </section>
@@ -647,6 +655,27 @@
          <canvas data-generated="true"
             style="width: 100% !important; height: 100% !important; position: fixed !important; z-index: 99999 !important; top: 0px !important; left: 0px !important; pointer-events: none;"
             aria-hidden="true" width="1898" height="587"></canvas>
+      </div>
+      <div class="notification">
+         <div class="notification__body">
+            <div class="notification__image">
+               <img src="img/product.webp" width="52" height="52" alt="product">
+            </div>
+            <div class="notification__info">
+               <div class="notification__user">
+                  Liam Edwards <span>from UK</span>
+               </div>
+               <div class="notification__text">
+                  Won a <span>Keter Garden Storage!</span>
+               </div>
+               <div class="notification__date">
+                  25 seconds ago
+               </div>
+            </div>
+         </div>
+         <div class="notification__close">
+            <img src="img/icons/close.svg" width="20" height="20" alt="close icon">
+         </div>
       </div>
    </main>
    <footer class="footer">

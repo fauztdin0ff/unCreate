@@ -263,8 +263,8 @@ document.addEventListener("DOMContentLoaded", function () {
    // Instruction button
    instructionButton.addEventListener("click", () => {
       transitionSection(sections.instruction, sections.order);
-      commentsSection.style.display = "none";
-      footer.style.display = "none";
+      if (commentsSection) fadeOut(commentsSection);
+      if (footer) fadeOut(footer);
    });
 
    // Game logic
@@ -404,6 +404,7 @@ function startTestTimer() {
    }, 1000);
    timer.style.color = 'red';
 }
+
 
 //Validation phone number
 document.querySelectorAll('.tel-input').forEach(input => {
