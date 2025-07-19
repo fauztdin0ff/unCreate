@@ -362,7 +362,6 @@ const monthName = months[now.getMonth()];
 const day = now.getDate();
 const year = now.getFullYear();
 
-// Обновляем содержимое элементов
 document.getElementById("dayToday").textContent = dayName;
 document.getElementById("dateToday").textContent = `${monthName} ${day}, ${year}`;
 
@@ -416,6 +415,64 @@ document.querySelectorAll('.tel-input').forEach(input => {
    });
 });
 
+//comment dates  
+document.addEventListener("DOMContentLoaded", () => {
+   const dateElements = document.querySelectorAll('.comment__date');
+   if (!dateElements.length) return;
+
+   const today = new Date();
+   const yesterday = new Date();
+   const dayBeforeYesterday = new Date();
+
+   yesterday.setDate(today.getDate() - 1);
+   dayBeforeYesterday.setDate(today.getDate() - 2);
+
+   const formatDate = (date) => {
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      return `${day}.${month}.${year}`;
+   };
+
+   dateElements.forEach((el, index) => {
+      if (!el) return;
+
+      if (index === 0) {
+         el.textContent = formatDate(today);
+      } else if (index >= 1 && index <= 3) {
+         el.textContent = formatDate(yesterday);
+      } else {
+         el.textContent = formatDate(dayBeforeYesterday);
+      }
+   });
+});
+
+
+//New comment
+document.addEventListener("DOMContentLoaded", () => {
+   const form = document.querySelector(".comments__leave-form");
+   if (!form) return;
+
+   const textarea = form.querySelector("textarea");
+   const button = form.querySelector("button");
+   const message = form.querySelector(".comments__leave-message");
+
+   if (!textarea || !button || !message) return;
+
+   textarea.addEventListener("input", () => {
+      button.disabled = textarea.value.trim().length === 0;
+   });
+
+   button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const text = textarea.value.trim();
+      if (text.length > 0) {
+         alert(message.textContent.trim());
+         textarea.value = "";
+         button.disabled = true;
+      }
+   });
+});
 
 })();
 
