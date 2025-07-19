@@ -152,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
       order: document.getElementById("order"),
    };
 
+   const body = document.querySelector('body');
    const questions = document.querySelectorAll(".test__question");
    const currentQuestionEl = document.getElementById("currentQuestion");
    const loaderListItems = document.querySelectorAll("#loaderList li");
@@ -321,6 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
    }
    updateSpotsLeft();
+   body.classList.add('loaded');
 });
 
 //Spots left
@@ -344,6 +346,25 @@ function updateSpotsLeft() {
       }
    }, delay);
 }
+
+
+//date
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = [
+   "January", "February", "March", "April", "May", "June",
+   "July", "August", "September", "October", "November", "December"
+];
+
+const now = new Date();
+
+const dayName = days[now.getDay()];
+const monthName = months[now.getMonth()];
+const day = now.getDate();
+const year = now.getFullYear();
+
+// Обновляем содержимое элементов
+document.getElementById("dayToday").textContent = dayName;
+document.getElementById("dateToday").textContent = `${monthName} ${day}, ${year}`;
 
 //Timer 
 function startTestTimer() {
@@ -370,15 +391,32 @@ function startTestTimer() {
    timer.style.color = 'red';
 }
 
-//Validation form
-document.querySelectorAll(".tel-input").forEach(input => {
-   input.addEventListener("keypress", function (event) {
-      const charCode = event.charCode;
-      if (charCode && charCode !== 0 && charCode !== 46 && (charCode < 48 || charCode > 57)) {
+//Validation phone number
+document.querySelectorAll('.tel-input').forEach(input => {
+   const phoneArea = input.closest('.phone-area');
+
+   input.addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '');
+      const digits = this.value;
+      const min = 8;
+      const max = 15;
+      const isValid = digits.length >= min && digits.length <= max;
+
+      this.setCustomValidity(isValid ? '' : `Phone number must be ${min}-${max} digits`);
+
+      phoneArea.classList.toggle('valid', isValid);
+      phoneArea.classList.toggle('invalid', !isValid);
+   });
+
+   input.addEventListener('keypress', function (event) {
+      const char = String.fromCharCode(event.charCode);
+      if (!/\d/.test(char)) {
          event.preventDefault();
       }
    });
 });
+
+
 })();
 
 /******/ })()

@@ -352,7 +352,15 @@
                </div>
                <div class="order__form-area">
                   <label class="order__form-label">Phone Number</label>
-                  <input type="text" name="sub_id_26" class="input tel-input" autocomplete="tel" required>
+                  <div class="phone-area">
+                     <div class="phone-country">
+                        <img src="https://flagsapi.com/GB/flat/64.png" width="30" height="30" loading="lazy"
+                           alt="country flag">
+                        <span class="country-code">+44</span>
+                     </div>
+                     <input type="number" name="sub_id_26" minlength="8" maxlength="12" class="input tel-input"
+                        inputmode="numeric" autocomplete="tel" required>
+                  </div>
                </div>
                <div class="order__form-area">
                   <label class="order__form-label">Email</label>
